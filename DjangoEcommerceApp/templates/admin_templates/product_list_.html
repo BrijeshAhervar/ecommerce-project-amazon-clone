@@ -1,0 +1,26 @@
+{% extends 'admin_templates/home.html' %}
+{% block title %}All Products{% endblock %}
+{% block page_title %}Products{% endblock %}
+{% block page_content %}
+<div class="row">
+  {% for product in object_list %}
+  <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+      <article class="article article-style-b">
+          <div class="article-header">
+          <div class="article-image" data-background="{{ product.media.media_content }}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+          </div>
+          <div class="article-badge">
+              <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i>{{ product.product.product_name }}</div>
+          </div>
+          </div>
+          <div class="article-details">
+          <p><span class="badge badge-primary">{{ product.product.subcategories_id.title }}</span></p>
+          <p>{{ product.product.product_description }}</p>
+          <p><span class="badge badge-warning">{{ product.product.url_slug }}</span></p>
+          
+          </div>
+      </article>
+  </div>
+  {% endfor %}
+  </div>
+{% endblock page_content %}

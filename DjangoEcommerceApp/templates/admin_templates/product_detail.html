@@ -1,0 +1,20 @@
+{% extends 'admin_templates/base_template.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block page_title %}{{ product.name }}{% endblock %}
+
+{% block page_content %}
+<div class="row">
+  <div class="col-md-6">
+    {% for m in media %}
+      <img src="{{ m.file.url }}" class="img-fluid mb-2" alt="">
+    {% endfor %}
+  </div>
+  <div class="col-md-6">
+    <h2>{{ product.name }}</h2>
+    <p><strong>Brand:</strong> {{ product.brand }}</p>
+    <p><strong>Price:</strong> ₹{{ product.discount_price }} <del>₹{{ product.max_price }}</del></p>
+    <p>{{ product.description }}</p>
+    <p><strong>Stock:</strong> {{ product.in_stock }}</p>
+  </div>
+</div>
+{% endblock %}
